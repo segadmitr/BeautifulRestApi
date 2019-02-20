@@ -47,8 +47,8 @@ namespace BeautifulRestApi
                 opt.SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
                 opt.SerializerSettings.DateParseHandling = DateParseHandling.DateTimeOffset;
             });
-
-            services.AddAutoMapper();
+            Mapper.Initialize(cfg=>cfg.AddProfile<DefaultAutomapperProfile>());
+           // services.AddAutoMapper(cfg=>cfg.AddProfile(typeof(DefaultAutomapperProfile)));
 
             services.Configure<Models.PagingOptions>(Configuration.GetSection("DefaultPagingOptions"));
 
