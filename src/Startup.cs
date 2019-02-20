@@ -32,7 +32,7 @@ namespace BeautifulRestApi
             {
                 // Use an in-memory database with a randomized database name (for testing)
                 options.UseInMemoryDatabase(Guid.NewGuid().ToString());
-            });
+            },ServiceLifetime.Singleton);
 
             services.AddRouting(options => options.LowercaseUrls = true);
 
